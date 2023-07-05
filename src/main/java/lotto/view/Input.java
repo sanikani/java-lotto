@@ -10,17 +10,34 @@ public class Input {
 
     public int inputAmount(){
         System.out.println(INPUT_AMOUNT);
-        return sc.nextInt();
+        int money = sc.nextInt();
+        if(money%1000 != 0){
+            throw new IllegalArgumentException("[ERROR] 1000원 단위로 입력해 주세요");
+        }
+        return money/1000;
     }
 
     public int[] inputLottoNums(){
         System.out.println(INPUT_LOTTO_NUMS);
-        return toInt(sc.nextLine().split(","));
+        int[] inputNums = toInt(sc.next().split(","));
+        if(inputNums.length != 6){
+            throw new IllegalArgumentException("[ERROR] 6개의 번호를 입력해 주세요");
+        }
+        for (int inputNum : inputNums) {
+            if(inputNum<0 || inputNum > 45){
+                throw new IllegalArgumentException("[ERROR] 로또 번호는 1~45까지 입니다.");
+            }
+        }
+        return inputNums;
     }
 
     public int inputBonusNum(){
         System.out.println(INPUT_BONUS_NUM);
-        return sc.nextInt();
+        int BonusNum = sc.nextInt();
+        if(BonusNum<0 || BonusNum > 45){
+            throw new IllegalArgumentException("[ERROR] 로또 번호는 1~45까지 입니다.");
+        }
+        return BonusNum;
     }
 
     public int[] toInt(String[] strNumbers){

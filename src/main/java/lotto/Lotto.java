@@ -1,5 +1,6 @@
 package lotto;
 
+import java.util.Arrays;
 import java.util.List;
 
 public class Lotto {
@@ -14,7 +15,13 @@ public class Lotto {
         if (numbers.size() != 6) {
             throw new IllegalArgumentException();
         }
+        for (Integer number : numbers) {
+            if(number<0 || number > 45){
+                throw new IllegalArgumentException();
+            }
+        }
     }
-
-    // TODO: 추가 기능 구현
+    public List<Integer> getNumbers() {
+        return numbers;
+    }
 }

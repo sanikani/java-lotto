@@ -14,7 +14,7 @@ public class Input {
         if(money%1000 != 0){
             throw new IllegalArgumentException("[ERROR] 1000원 단위로 입력해 주세요");
         }
-        return money/1000;
+        return money;
     }
 
     public int[] inputLottoNums(){

@@ -11,12 +11,11 @@ public class LottoProfitCalculator {
         for (Rank rank : ranks) {
             totalProfit += rank.getPrize();
         }
-        System.out.println("totalProfit = " + totalProfit);
         return totalProfit;
     }
 
-    public static double profitCalculator(double purchaseAmount){
-        return (double)(totalProfit/purchaseAmount)*100;
+    public static void profitCalculator(double purchaseAmount){
+        System.out.printf("총 수익률은 %.1f%%입니다\n", (double)(totalProfit/purchaseAmount)*100);
     }
 
 

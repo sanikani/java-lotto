@@ -1,6 +1,8 @@
 package lotto.view;
 
+import java.util.Arrays;
 import java.util.Scanner;
+import java.util.stream.IntStream;
 
 public class Input {
     private static final Scanner sc = new Scanner(System.in);
@@ -8,7 +10,7 @@ public class Input {
     private static final String INPUT_LOTTO_NUMS = "당첨 번호를 입력해 주세요";
     private static final String INPUT_BONUS_NUM = "보너스 번호를 입력해 주세요";
 
-    public int inputAmount(){
+    public static int inputAmount(){
         System.out.println(INPUT_AMOUNT);
         int money = sc.nextInt();
         if(money%1000 != 0){
@@ -28,6 +30,8 @@ public class Input {
                 throw new IllegalArgumentException("[ERROR] 로또 번호는 1~45까지 입니다.");
             }
         }
+        isDuplicated(inputNums);
+
         return inputNums;
     }
 
@@ -46,6 +50,15 @@ public class Input {
             nums[i] = Integer.parseInt(strNumbers[i]);
         }
         return nums;
+    }
+
+    public void isDuplicated(int[] inputNums) {
+        int[] distinctedArray = Arrays.stream(inputNums)
+                .distinct()
+                .toArray();
+        if(distinctedArray.length!=6){
+            throw new IllegalArgumentException("[ERROR] 중복된 번호는 선택할수 없습니다.");
+        }
     }
 
 }

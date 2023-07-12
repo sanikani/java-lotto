@@ -31,11 +31,4 @@ public enum Rank {
         return prize;
     }
 
-    public int getCount() {
-        return count;
-    }
-
-    public boolean isHasBonusNumber() {
-        return hasBonusNumber;
-    }
 }

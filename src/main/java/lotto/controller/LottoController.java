@@ -12,7 +12,6 @@ import java.util.List;
 
 public class LottoController {
     private static final Input input = new Input();
-    public static final LottoNumberGenerator LOTTO_NUMBER_GENERATOR = new LottoNumberGenerator();
     public static final int LOTTO_PRICE = 1000;
     public void start(){
         int inputAmount = Input.inputAmount();
